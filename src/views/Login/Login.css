@@ -5,18 +5,20 @@
   background-color: black;
 }
 
-.login img {
+.login > img {
   width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .login > a {
+  cursor: pointer;
   padding: 20px;
   border-radius: 99px;
   background-color: #1db954;
-  color: white;
-  font-weight: 800;
+  color: #fff;
+  font-weight: bold;
   text-decoration: none;
-  cursor: pointer;
   transition: all 0.3s;
 }
 
