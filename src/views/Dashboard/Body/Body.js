@@ -46,18 +46,20 @@ const Body = ({ spotify }) => {
             playing: true,
           });
         });
-      })
-      .catch((err) => {
-        let log = "Se requiere cuenta Premium";
-        let warning = document.querySelector(".body__infoText");
-        warning.style.cssText = "color: red; max-width: 450px; margin: auto";
-        warning.innerHTML = log;
       });
   };
+
+  // .catch((err) => {
+  //   let log = "Se requiere cuenta Premium";
+  //   let warning = document.querySelector(".body__infoText");
+  //   warning.style.cssText = "color: red; max-width: 450px; margin: auto";
+  //   warning.innerHTML = log;
+  // });
 
   return (
     <div className="body">
       <Header spotify={spotify} />
+
       <div className="body__info">
         <img src={discover_weekly?.images[0].url} alt="" />
         <div className="body__infoText">
@@ -66,18 +68,19 @@ const Body = ({ spotify }) => {
           <p>{discover_weekly?.description}</p>
         </div>
       </div>
+
       <div className="body__songs">
         <div className="body__icons">
           <PlayCircleFilledIcon
-            onClick={playPlaylist}
             className="body__shuffle"
+            onClick={playPlaylist}
           />
-          <FavoriteIcon className="body__heart" fontSize="large" />
-          <MoreHorizIcon className="" />
+          <FavoriteIcon fontSize="large" />
+          <MoreHorizIcon />
         </div>
 
         {discover_weekly?.tracks.items.map((item) => (
-          <SongRow key={Math.random()} track={item.track} playSong={playSong} />
+          <SongRow playSong={playSong} track={item.track} />
         ))}
       </div>
     </div>
