@@ -6,6 +6,7 @@ import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import SongRow from "../../Dashboard/Songs/SongRow";
+import { createGenerateClassName } from "@material-ui/core";
 
 const Body = ({ spotify }) => {
   const [{ discover_weekly }, dispatch] = useStateValue();
@@ -47,7 +48,10 @@ const Body = ({ spotify }) => {
         });
       })
       .catch((err) => {
-        console.log(err);
+        let log = "Se requiere cuenta Premium";
+        let warning = document.querySelector(".body__infoText");
+        warning.style.cssText = "color: red; max-width: 450px; margin: auto";
+        warning.innerHTML = log;
       });
   };
 
@@ -62,11 +66,10 @@ const Body = ({ spotify }) => {
           <p>{discover_weekly?.description}</p>
         </div>
       </div>
-
       <div className="body__songs">
         <div className="body__icons">
           <PlayCircleFilledIcon
-            onclick={playPlaylist}
+            onClick={playPlaylist}
             className="body__shuffle"
           />
           <FavoriteIcon className="body__heart" fontSize="large" />
