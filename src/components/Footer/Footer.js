@@ -14,10 +14,14 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="footer__left">
-        <img src="" alt="" className="footer__albumLogo" />
+        <img
+          src="./master_cover.jpg"
+          alt="album"
+          className="footer__albumLogo"
+        />
         <div className="footer__songInfo">
           <h4>Now playing</h4>
-          <p>Usher</p>
+          <p>Metallica</p>
         </div>
       </div>
       <div className="footer__center">
